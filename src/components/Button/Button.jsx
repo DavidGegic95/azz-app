@@ -1,8 +1,17 @@
 import React from 'react'
 import './button.css'
-function Button() {
+import ButtonMui from '@mui/material/Button';
+
+
+
+
+function Button({loginInfo, click}) {
+
+  function checkPassword(){}
+
+
   return (
-    <div>Button</div>
+    <ButtonMui onClick={click}  variant="outlined">Login</ButtonMui>
   )
 }
 
