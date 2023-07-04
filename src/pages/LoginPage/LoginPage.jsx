@@ -11,6 +11,9 @@ import Button from '../../components/Button/Button'
 
 
 
+
+const probaGranaConflict = () => {}
+
 function LoginPage() {
   const {setToken,setIsChecked,isChecked} = useContext(appContext)
   
