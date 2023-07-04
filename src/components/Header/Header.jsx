@@ -3,13 +3,22 @@ import './header.css'
 import { TextField } from '@mui/material'
 
 
-function Header() {
+function Header({setInputName}) {
+
+
+  const handleSearch = (e) => {
+    setInputName(e.target.value)
+  }
+
+
   return (
 
 
-    <Header>
-      <TextField></TextField>
-    </Header>
+   <header>
+     <TextField onChange={(e) => handleSearch(e)}></TextField>
+
+   </header>
+
   )
 }
 

@@ -48,7 +48,7 @@ function LoginPage() {
         setToken(data?.accessToken)
         {isChecked?localStorage.setItem("token", data?.accessToken):sessionStorage.setItem("token", data?.accessToken)}
 
-        navigate("/home")
+        navigate("/candidatesPage")
       }
     })
   }

@@ -4,7 +4,7 @@ import './footer.css'
 function Footer() {
   return (
     
-     <Footer></Footer>
+     <footer></footer>
   )
 }
 
