@@ -11,13 +11,6 @@ import Button from '../../components/Button/Button'
 
 
 
-
-
-
-
-
-
-
 function LoginPage() {
   const {setToken,setIsChecked,isChecked} = useContext(appContext)
   
