@@ -1,5 +1,6 @@
 import { AppProvider } from './context';
 import './App.css';
+import HomePage from './pages/HomePage/HomePage';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
 
 
       <div className="App">
+        <HomePage></HomePage>
 
       </div>
 
