@@ -9,11 +9,11 @@ import ReportsPage from "./pages/ReportsPage/ReportsPage"
 
 function App() {
 
-  const [token, setToken] = useState("")
-  const[isChecked,setIsChecked]=useState(false)
-  const [allCandidates,setAllCandidates]=useState([])
-  const [isDeleted,setIsDeleted]=useState(false)
-  const [allReports,setAllReports]=useState([])
+  const [isChecked, setIsChecked] = useState(false)
+  const [token, setToken] = useState(!isChecked ? localStorage.getItem("token") : sessionStorage.getItem("token"))
+  const [allCandidates, setAllCandidates] = useState([])
+  const [isDeleted, setIsDeleted] = useState(false)
+  const [allReports, setAllReports] = useState([])
 
 
   const getAllReports = () => {
@@ -22,14 +22,14 @@ function App() {
       headers: {
         "Authorization": `Bearer ${token}`,    ///headers u GET metodi na nije potreban, za razliku od DELETE metode
         "Content-Type": "application/json",
-      }, 
+      },
       body: JSON.stringify()
     })
-    .then(res => res.json())
-  .then(data => setAllReports(data))
+      .then(res => res.json())
+      .then(data => setAllReports(data))
   }
 
-  
+
 
 
 
@@ -39,40 +39,46 @@ function App() {
       headers: {
         "Authorization": `Bearer ${token}`,    ///headers u GET metodi na nije potreban, za razliku od DELETE metode
         "Content-Type": "application/json",
-      }, 
+      },
       body: JSON.stringify()
     })
-    .then(res => res.json())
-  .then(data =>  setAllCandidates(data))
+      .then(res => res.json())
+      .then(data => setAllCandidates(data))
   }
 
+
+
   useEffect(() => {
+    console.log(token);
     getAllReports()
     getAllCandidates()
-      if(!token){
-        setToken(localStorage.getItem("token"))
-      }
-      if(!token) {setToken(sessionStorage.getItem("token"))}
-    
+    console.log("posle");
+    console.log(token);
+
+
+
   }, [isDeleted])
 
 
 
+
+
+
   return (
-    <AppProvider value={{setToken,setIsChecked,isChecked,allCandidates,token,isDeleted,setIsDeleted,allReports}}>
+    <AppProvider value={{ setToken, setIsChecked, isChecked, allCandidates, token, isDeleted, setIsDeleted, allReports }}>
 
 
       <div className="App">
-      <Routes>
+        <Routes>
           <Route path="/candidatesPage" element={<CandidatesPage />} />
-          <Route path='/loginPage' element={<LoginPage/>}/>
-          <Route path='/reportsPage' element={<ReportsPage/>}/>
+          <Route path='/loginPage' element={<LoginPage />} />
+          <Route path='/reportsPage' element={<ReportsPage />} />
 
-          </Routes>
+        </Routes>
 
 
-      {/* //  <LoginPage></LoginPage> */}
-       {/* <CandidatesPage></CandidatesPage> */}
+        {/* //  <LoginPage></LoginPage> */}
+        {/* <CandidatesPage></CandidatesPage> */}
 
 
 
