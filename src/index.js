@@ -37,7 +37,7 @@ const theme = createTheme({
         },
     },
 }
-  );
+);
 
 
 root.render(

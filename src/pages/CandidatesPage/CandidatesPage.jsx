@@ -45,6 +45,7 @@ function CandidatesPage() {
 
 
 
+
   return (
 
     <div className='candidatesPage'>
