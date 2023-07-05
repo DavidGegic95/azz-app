@@ -50,3 +50,7 @@
   display: inline-block;
   font-size: 16px;
   }
+
+.login:hover{
+  cursor: pointer;
+}
