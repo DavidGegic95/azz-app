@@ -1,0 +1,45 @@
+body{
+    min-height: 100vh;
+    width: 100%;
+    
+}
+
+.candidatesPage{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items:center ;
+    justify-content: center;
+}
+
+.allCandidatesCards{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px 0;
+    min-height: calc(100vh - 20px);
+}
+
+.candidateCard{
+    height: 400px;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.candidateName{
+    font-size: 20px;
+}
+
+.candidateImage{
+    width: 200px;
+    height: 200px;
+    border: none;
+    border-radius: 50%;
+    background-color: aqua;
+}
