@@ -1,17 +1,61 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+
+
+const theme = createTheme({
+    palette: {
+        mode: 'dark',
+        primary: {
+            main: '#D6D60B',
+            dark: '#74FF4A',
+            light: '#D6D60B',
+        },
+        secondary: {
+            main: '#F5D700',
+        },
+        text: {
+            primary: '#FFEBEE',
+            hint: '#15621A',
+        },
+        info: {
+            main: '#B96115',
+            contrastText: '#AA2F2F',
+        },
+        success: {
+            main: '#34FD3E',
+        },
+        divider: 'rgba(150,29,29,0.12)',
+        background: {
+            paper: '#000000',
+        },
+    },
+}
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+root.render(
+
+
+    <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <BrowserRouter>
+
+
+            <App />
+
+
+
+
+        </BrowserRouter>
+    </ThemeProvider>
+
+);
+
+
