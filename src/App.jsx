@@ -1,38 +1,28 @@
 import { AppProvider } from './context';
 import './App.css';
-<<<<<<< Updated upstream
 import LoginPage from './pages/LoginPage/LoginPage';
 import { useEffect, useState } from 'react';
 import CandidatesPage from './pages/CandidatesPage/CandidatesPage';
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import ReportsPage from "./pages/ReportsPage/ReportsPage"
-
-
-
-function App() {
-=======
 import Select from './components/Select/Select';
 // import StepperApp from './components/StepperApp/StepperApp';
 // import { ThemeProvider, createTheme } from '@mui/material/styles';
 
+
+
+
+
 function App({selectedDate, setSelectedDate}) {
-
- 
-
-
-  return (
-    
-      
-    <AppProvider>
->>>>>>> Stashed changes
 
   const [isChecked, setIsChecked] = useState(false)
   const [token, setToken] = useState(!isChecked ? localStorage.getItem("token") : sessionStorage.getItem("token"))
   const [allCandidates, setAllCandidates] = useState([])
   const [isDeleted, setIsDeleted] = useState(false)
   const [allReports, setAllReports] = useState([])
+ 
 
-
+  
   const getAllReports = () => {
     fetch("http://localhost:3333/api/reports", {
       method: "GET",
@@ -75,6 +65,10 @@ function App({selectedDate, setSelectedDate}) {
 
 
   }, [isDeleted])
+
+
+
+
 
 
 
