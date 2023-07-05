@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import ReportsPage from "./pages/ReportsPage/ReportsPage"
 
 
+
 function App() {
 
   const [isChecked, setIsChecked] = useState(false)
