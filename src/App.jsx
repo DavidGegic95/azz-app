@@ -1,5 +1,6 @@
 import { AppProvider } from './context';
 import './App.css';
+import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import { useEffect, useState } from 'react';
 import CandidatesPage from './pages/CandidatesPage/CandidatesPage';
@@ -81,6 +82,7 @@ function App({ selectedDate, setSelectedDate }) {
 
       <div className="App">
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/candidatesPage" element={<CandidatesPage />} />
           <Route path='/loginPage' element={<LoginPage />} />
           <Route path='/reportsPage' element={<ReportsPage />} />
