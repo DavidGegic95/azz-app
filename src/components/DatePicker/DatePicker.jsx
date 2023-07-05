@@ -8,7 +8,7 @@ import './datePicker.css'
 
 function DatePicker() {
   const [selectedDate, setSelectedDate] = useState(null);
-  
+
   const currentDate = new Date();
 
   const handleDateChange = (date) => {
@@ -19,22 +19,22 @@ function DatePicker() {
   return (
     <div >
 
-    <CustomDatePicker className='datePicker'
-      selected={selectedDate}
-      onChange={handleDateChange}
-      dateFormat="dd/MM/yyyy"
-      todayButton="Today"
-      placeholderText="Date of Interview"
-      showPopperArrow={false}
-      minDate={currentDate} 
-      customInput={
-        <button className="custom-select" onClick={() => {}}>
-          {selectedDate ? selectedDate.toLocaleDateString() : 'Date of Interview'}
-        </button>
-      }
-    />
-  </div>
-      )
-    }
-    
+      <CustomDatePicker className='datePicker'
+        selected={selectedDate}
+        onChange={handleDateChange}
+        dateFormat="dd/MM/yyyy"
+        todayButton="Today"
+        placeholderText="Date of Interview"
+        showPopperArrow={false}
+        minDate={currentDate}
+        customInput={
+          <button className="custom-select" onClick={() => { }}>
+            {selectedDate ? selectedDate.toLocaleDateString() : 'Date of Interview'}
+          </button>
+        }
+      />
+    </div>
+  )
+}
+
 export default DatePicker
