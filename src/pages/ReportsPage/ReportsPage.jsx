@@ -1,8 +1,13 @@
 import React from 'react'
 import './reportsPage.css'
+import Select from '../../components/Select/Select'
+
+
 function ReportsPage() {
   return (
-    <div>ReportsPage</div>
+    <div>
+      <Select></Select>
+      </div>
   )
 }
 

@@ -1,5 +1,6 @@
 import { AppProvider } from './context';
 import './App.css';
+<<<<<<< Updated upstream
 import LoginPage from './pages/LoginPage/LoginPage';
 import { useEffect, useState } from 'react';
 import CandidatesPage from './pages/CandidatesPage/CandidatesPage';
@@ -9,6 +10,21 @@ import ReportsPage from "./pages/ReportsPage/ReportsPage"
 
 
 function App() {
+=======
+import Select from './components/Select/Select';
+// import StepperApp from './components/StepperApp/StepperApp';
+// import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+function App({selectedDate, setSelectedDate}) {
+
+ 
+
+
+  return (
+    
+      
+    <AppProvider>
+>>>>>>> Stashed changes
 
   const [isChecked, setIsChecked] = useState(false)
   const [token, setToken] = useState(!isChecked ? localStorage.getItem("token") : sessionStorage.getItem("token"))
@@ -84,6 +100,15 @@ function App() {
 
 
 
+
+
+
+{/* <StepperApp></StepperApp> */}
+
+    <Select></Select>
+    
+
+
       </div>
 
 
@@ -94,8 +119,8 @@ function App() {
 
     </AppProvider>
 
-
-  );
+   
+);
 }
 
 export default App;
