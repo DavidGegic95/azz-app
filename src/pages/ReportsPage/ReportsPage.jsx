@@ -13,8 +13,19 @@ import TextField from '@mui/material/TextField';
 
 
 function ReportsPage() {
-  const { allCompanies } = useContext(appContext)
-  const [selectedOption, setSelectedOption] = useState({});
+  const { allCompanies, candidateId } = useContext(appContext)
+  const [selectedOption, setSelectedOption] = useState({
+    id: "",
+    companyName: "",
+    status: "",
+    phase: "",
+    interviewDate: "",
+    note: "",
+    companyId: "",
+    candidateName: `${candidateId.name}`,
+    candidateId: `${candidateId.id}`
+  })
+  console.log(selectedOption);
 
   const options = [
     { value: 'passed', name: 'Passed' },
@@ -28,23 +39,34 @@ function ReportsPage() {
     { value: 'Final', name: 'Final' },
   ]
 
+  const allCompaniesObj = [...allCompanies]
 
 
 
 
+  const handler = (event) => {
+    const newselectedOptions = { ...selectedOption };
+    // newselectedOptions["note"] = event.target.value;
+    newselectedOptions.note = event.target.value;
+
+    setSelectedOption(newselectedOptions)
+    console.log(newselectedOptions)
+
+  }
 
 
   return (
     <div>
       <h1>Create report</h1>
-      <Select selectedOption={selectedOption} setSelectedOption={setSelectedOption} name={"Company"} tittleSelect={"Select company"} options={allCompanies} ></Select>
-      <Select selectedOption={selectedOption} setSelectedOption={setSelectedOption} name={"Phase"} tittleSelect={"Select phase"} options={phases} ></Select>
-      <Select setSelectedOption={setSelectedOption} name={"Status"} tittleSelect={"Select status"} options={options} ></Select>
-      <CustomDatePicker className='dropdown'></CustomDatePicker>
-      <Box
+      <Select setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="companyName" name="Company" tittleSelect={"Select company"} options={allCompaniesObj} ></Select>
+      <Select setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="phase" name="Phase" tittleSelect={"Select phase"} options={phases} ></Select>
+      <Select setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="status" name="Status" tittleSelect={"Select status"} options={options} ></Select>
+      <CustomDatePicker setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="interviewDate" className='dropdown'></CustomDatePicker>
+      <Box onChange={(e) => handler(e)}
+
         component="form"
         sx={{
-          '& .MuiTextField-root': { m: 1, width: '25ch' },
+          '& .MuiTextField-root': { m: 1, width: '50ch', },
         }}
         noValidate
         autoComplete="off"

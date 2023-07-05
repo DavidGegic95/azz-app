@@ -19,6 +19,7 @@ function App({ selectedDate, setSelectedDate }) {
   const [isDeleted, setIsDeleted] = useState(false)
   const [allReports, setAllReports] = useState([])
   const [allCompanies, setAllCompanies] = useState([])
+  const [candidateId, setCandidateId] = useState({})
 
 
 
@@ -59,7 +60,7 @@ function App({ selectedDate, setSelectedDate }) {
     fetch('http://localhost:3333/api/companies')
       .then(response => response.json())
       .then(data => {
-        console.log(data) || setAllCompanies(data)
+        setAllCompanies(data)
 
       })
   }
@@ -75,7 +76,7 @@ function App({ selectedDate, setSelectedDate }) {
 
 
   return (
-    <AppProvider value={{ setToken, setIsChecked, isChecked, allCandidates, token, isDeleted, setIsDeleted, allReports, allCompanies }}>
+    <AppProvider value={{ setToken, setIsChecked, isChecked, allCandidates, token, isDeleted, setIsDeleted, allReports, allCompanies, setCandidateId, candidateId }}>
 
 
       <div className="App">

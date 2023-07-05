@@ -6,13 +6,18 @@ import './datePicker.css'
 
 
 
-function DatePicker() {
+function DatePicker({ selectedOption, setSelectedOption, params }) {
   const [selectedDate, setSelectedDate] = useState(null);
 
   const currentDate = new Date();
 
+
   const handleDateChange = (date) => {
     setSelectedDate(date);
+    const newselectedOptions = { ...selectedOption };
+    newselectedOptions[params] = date;
+    setSelectedOption(newselectedOptions)
+    console.log(newselectedOptions)
   };
 
 

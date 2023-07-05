@@ -14,7 +14,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 
 
 function CandidatesPage() {
-  const { allCandidates, token, setIsDeleted, allReports } = useContext(appContext)
+  const { allCandidates, token, setIsDeleted, allReports, setCandidateId } = useContext(appContext)
   const navigate = useNavigate()
 
   const [inputName, setInputName] = useState("");
@@ -43,6 +43,11 @@ function CandidatesPage() {
 
   }
 
+  const clickCreateReport = (candidate) => {
+    setCandidateId(candidate)
+    navigate("/reportsPage")
+  }
+
 
 
 
@@ -59,7 +64,7 @@ function CandidatesPage() {
               <img className='candidateImage' key={uuidv4()} src={singleCandidate?.avatar} alt="" />
               <p className='candidateName' key={uuidv4()}>{singleCandidate?.name}</p>
               <BasicModal candidateIdprops={singleCandidate?.id} allReports={allReports} birthday={singleCandidate?.birthday} email={singleCandidate?.email} name={singleCandidate?.name} key={uuidv4} />
-              <Button onClick={() => navigate("/reportsPage")}>
+              <Button onClick={() => clickCreateReport(singleCandidate)}>
 
                 <CreateIcon />
               </Button>
