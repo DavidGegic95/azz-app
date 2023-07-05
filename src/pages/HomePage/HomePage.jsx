@@ -1,9 +1,8 @@
 import React from 'react'
 import './homePage.css'
 
-
 function HomePage() {
-  
+
   const loginButton = function (){
 
   }

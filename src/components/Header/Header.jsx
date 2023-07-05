@@ -1,8 +1,24 @@
 import React from 'react'
 import './header.css'
-function Header() {
+import { TextField } from '@mui/material'
+
+
+function Header({setInputName}) {
+
+
+  const handleSearch = (e) => {
+    setInputName(e.target.value)
+  }
+
+
   return (
-    <div>Header</div>
+
+
+   <header>
+     <TextField onChange={(e) => handleSearch(e)}></TextField>
+
+   </header>
+
   )
 }
 
