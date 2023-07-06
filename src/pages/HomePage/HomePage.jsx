@@ -7,11 +7,11 @@ function HomePage() {
   const token = localStorage.getItem("token")
   const navigate = useNavigate()
 
-  const isTokenValid = function() {
-    if(!!token){
+  const isTokenValid = function () {
+    if (!!token) {
       const decodedToken = jwt_decode(token)
       const currentDate = new Date();
-      if(decodedToken.exp * 1000 < currentDate.getTime()){
+      if (decodedToken.exp * 1000 < currentDate.getTime()) {
         return false
       }
       else {
@@ -23,19 +23,20 @@ function HomePage() {
     }
   }
   console.log(isTokenValid())
-  const loginButton = function (){
-    if(isTokenValid()){
+  const loginButton = function () {
+    if (isTokenValid()) {
       navigate("/candidatesPage")
-    }else{
+    } else {
       navigate("/loginPage")
     }
   }
 
-  
+
   return (
-    <div>
+    <div className="homePage" >
       <button onClick={loginButton} class="login">Login</button>
       <img src="/images/employment.jpeg" alt="" />
+      <div className="whiteDiv"></div>
     </div>
   )
 }
