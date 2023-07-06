@@ -30,13 +30,15 @@ body {
 .candidateCard {
     height: 400px;
     width: 300px;
-    border: 1px solid black;
+    border: 2px solid green;
     border-radius: 20px;
-    background-color: #52796F;
+    
+    
 }
 
 .candidateName {
     font-size: 20px;
+    color: green;
 }
 
 .candidateImage {
@@ -44,5 +46,5 @@ body {
     height: 200px;
     border: none;
     border-radius: 50%;
-    background-color: aqua;
+   
 }
