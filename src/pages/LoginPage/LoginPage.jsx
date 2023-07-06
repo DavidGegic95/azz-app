@@ -8,6 +8,7 @@ import { appContext } from '../../context';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Input from '../../components/Input/Input'
 import Button from '../../components/Button/Button'
+import InputPassword from "../../components/InputPassword/InputPassword"
 
 
 
@@ -68,8 +69,9 @@ function LoginPage() {
 
 
       <Input error={error} name="email" change={handler} type='text' />
-      <Input error={error} name="password" change={handler} type='password' />
+      {/* <Input error={error} name="password" change={handler} type='password' /> */}
       {/* {error&&<p>Eroooooor</p>} */}
+      <InputPassword error={error} name="password" change={handler} type='password' />
 
       <FormControlLabel onClick={() => setIsChecked((prev) => !prev)} setIsChecked={setIsChecked} control={<Checkbox defaultChecked={isChecked} />} label="remeber me" />
 

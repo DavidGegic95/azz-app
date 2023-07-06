@@ -7,15 +7,17 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 
 
 
 function ReportsPage() {
-  const { allCompanies, candidateId } = useContext(appContext)
+  const { allCompanies, candidateId, token, setIsSubmitted } = useContext(appContext)
   const [selectedOption, setSelectedOption] = useState({
-    id: "",
+    id: `${uuidv4()}`,
     companyName: "",
     status: "",
     phase: "",
@@ -26,6 +28,7 @@ function ReportsPage() {
     candidateId: `${candidateId.id}`
   })
   console.log(selectedOption);
+
 
   const options = [
     { value: 'passed', name: 'Passed' },
@@ -40,6 +43,23 @@ function ReportsPage() {
   ]
 
   const allCompaniesObj = [...allCompanies]
+
+
+
+
+  const saveAllNewReports = () => {
+    fetch("http://localhost:3333/api/reports", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(selectedOption)
+    })
+    setIsSubmitted(true)
+
+  }
+
 
 
 
@@ -80,7 +100,7 @@ function ReportsPage() {
         </div>
       </Box>
       <Link to={`/candidatesPage`}>
-        <Button variant="outlined">Submit</Button>
+        <Button onClick={saveAllNewReports} variant="outlined">Submit</Button>
       </Link>
     </div >
   )

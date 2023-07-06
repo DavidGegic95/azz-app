@@ -7,8 +7,9 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import Moment from 'react-moment';
-
 import Table from "../Table/Table"
+import UpdateTextField from '../UpdateTextField/UpdateTextField';
+
 
 
 
@@ -25,23 +26,23 @@ const style = {
   p: 4,
 };
 
-export default function BasicModal({name,email,birthday,candidateIdprops,allReports}) {
+export default function BasicModal({ name, email, birthday, candidateIdprops, allReports }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  console.log(allReports);
-  const reportsByCandidateID=[]
-  allReports.map(candidate => {
-   if(candidate.candidateId===candidateIdprops){
-    reportsByCandidateID.push(candidate)
-   }
+  const reportsByCandidateID = []
+  allReports.map(report => {
+    if (report.candidateId == candidateIdprops) {
+      reportsByCandidateID.push(report)
+    }
 
   })
-  console.log(reportsByCandidateID);
+  console.log(allReports);
 
   return (
     <div>
-      <Button onClick={handleOpen}><VisibilityIcon/></Button>
+      <Button onClick={handleOpen}><VisibilityIcon /></Button>
+      {/* <UpdateTextField /> */}
       <Modal
         open={open}
         onClose={handleClose}
@@ -53,34 +54,22 @@ export default function BasicModal({name,email,birthday,candidateIdprops,allRepo
             {name}
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            email: <br/>
-           {email}
-           <br/>
+            email: <br />
+            {email}
+            <br />
 
-           birthday: <br/>
+            birthday: <br />
 
-           <Moment format="DD/MM/YYYY">{birthday}</Moment>
+            <Moment format="DD/MM/YYYY">{birthday}</Moment>
           </Typography>
 
 
-        <Table reportsByCandidateID={reportsByCandidateID} />
+          <Table reportsByCandidateID={reportsByCandidateID} />
 
-
-          {/* { reportsByCandidateID.map((report)=>{
-            return(
-              <div>
-                {report.companyName}
-                {report.phase}
-                {report.status}
-
-              </div>
-            )
-          })
-            
-          } */}
 
         </Box>
       </Modal>
     </div>
   );
 }
+

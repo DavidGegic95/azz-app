@@ -21,6 +21,7 @@ function App({ selectedDate, setSelectedDate }) {
   const [allReports, setAllReports] = useState([])
   const [allCompanies, setAllCompanies] = useState([])
   const [candidateId, setCandidateId] = useState({})
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
 
 
@@ -72,12 +73,13 @@ function App({ selectedDate, setSelectedDate }) {
     getAllReports()
     getAllCandidates()
     selectCompany()
-  }, [isDeleted])
+
+  }, [isDeleted, isSubmitted])
 
 
 
   return (
-    <AppProvider value={{ setToken, setIsChecked, isChecked, allCandidates, token, isDeleted, setIsDeleted, allReports, allCompanies, setCandidateId, candidateId }}>
+    <AppProvider value={{ setToken, setIsChecked, isChecked, allCandidates, token, isDeleted, setIsDeleted, allReports, allCompanies, setCandidateId, candidateId, setIsSubmitted }}>
 
 
       <div className="App">

@@ -8,16 +8,17 @@ import TextField from "@mui/material/TextField";// import Box from '@mui/materia
 function Input({ name, type, change, error }) {
   return (
     <TextField
+      type={type}
       helperText={error && "Incorrect entry."}
       error={error}
       placeholder={name}
       name={name}
       onChange={change}
 
-      />
+    />
   )
 
-  }
+}
 
 
 
