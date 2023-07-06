@@ -12,7 +12,7 @@ import ReportsPage from "./pages/ReportsPage/ReportsPage"
 
 
 
-function App({ selectedDate, setSelectedDate }) {
+function App() {
 
   const [isChecked, setIsChecked] = useState(false)
   const [token, setToken] = useState(!isChecked ? localStorage.getItem("token") : sessionStorage.getItem("token"))
@@ -22,6 +22,9 @@ function App({ selectedDate, setSelectedDate }) {
   const [allCompanies, setAllCompanies] = useState([])
   const [candidateId, setCandidateId] = useState({})
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [isUpdatedInfo, setIsUpdatedInfo] = useState(false)
+
 
 
 
@@ -74,12 +77,12 @@ function App({ selectedDate, setSelectedDate }) {
     getAllCandidates()
     selectCompany()
 
-  }, [isDeleted, isSubmitted])
+  }, [isDeleted, isSubmitted, isUpdatedInfo])
 
 
 
   return (
-    <AppProvider value={{ setToken, setIsChecked, isChecked, allCandidates, token, isDeleted, setIsDeleted, allReports, allCompanies, setCandidateId, candidateId, setIsSubmitted }}>
+    <AppProvider value={{ setToken, setIsChecked, isChecked, allCandidates, token, isDeleted, setIsDeleted, allReports, allCompanies, setCandidateId, candidateId, setIsSubmitted, setSelectedDate, selectedDate, setIsUpdatedInfo }}>
 
 
       <div className="App">

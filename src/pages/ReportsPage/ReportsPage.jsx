@@ -13,9 +13,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 
-
 function ReportsPage() {
-  const { allCompanies, candidateId, token, setIsSubmitted } = useContext(appContext)
+  const { allCompanies, candidateId, token, setIsSubmitted, setSelectedDate, selectedDate } = useContext(appContext)
   const [selectedOption, setSelectedOption] = useState({
     id: `${uuidv4()}`,
     companyName: "",
@@ -81,7 +80,7 @@ function ReportsPage() {
       <Select setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="companyName" name="Company" tittleSelect={"Select company"} options={allCompaniesObj} ></Select>
       <Select setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="phase" name="Phase" tittleSelect={"Select phase"} options={phases} ></Select>
       <Select setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="status" name="Status" tittleSelect={"Select status"} options={options} ></Select>
-      <CustomDatePicker setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="interviewDate" className='dropdown'></CustomDatePicker>
+      <CustomDatePicker setSelectedDate={setSelectedDate} selectedDate={selectedDate} setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="interviewDate" className='dropdown'></CustomDatePicker>
       <Box onChange={(e) => handler(e)}
 
         component="form"
@@ -94,7 +93,7 @@ function ReportsPage() {
         <div>
           <TextField
             id="outlined-textarea"
-            label="Notes about Candidate"
+            label="about candidate"
             placeholder="Notes"
           />
         </div>

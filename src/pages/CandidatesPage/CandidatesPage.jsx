@@ -15,7 +15,7 @@ import NestedModal from '../../components/NestedModal/NestedModal';
 
 
 function CandidatesPage() {
-  const { allCandidates, token, setIsDeleted, allReports, setCandidateId } = useContext(appContext)
+  const { allCandidates, token, setIsDeleted, allReports, setCandidateId, setSelectedDate, selectedDate } = useContext(appContext)
   const navigate = useNavigate()
   console.log(allReports);
 
@@ -66,7 +66,7 @@ function CandidatesPage() {
               <img className='candidateImage' key={uuidv4()} src={singleCandidate?.avatar} alt="" />
               <p className='candidateName' key={uuidv4()}>{singleCandidate?.name}</p>
               {/* <BasicModal candidateIdprops={singleCandidate?.id} allReports={allReports} birthday={singleCandidate?.birthday} email={singleCandidate?.email} name={singleCandidate?.name} key={uuidv4()} /> */}
-              <NestedModal singleCandidate={singleCandidate} candidateIdprops={singleCandidate?.id} allReports={allReports} birthday={singleCandidate?.birthday} email={singleCandidate?.email} name={singleCandidate?.name} key={uuidv4()} />
+              <NestedModal selectedDate={selectedDate} setSelectedDate={setSelectedDate} singleCandidate={singleCandidate} candidateIdprops={singleCandidate?.id} allReports={allReports} birthday={singleCandidate?.birthday} email={singleCandidate?.email} name={singleCandidate?.name} key={uuidv4()} />
               <Button onClick={() => clickCreateReport(singleCandidate)}>
 
                 <CreateIcon />

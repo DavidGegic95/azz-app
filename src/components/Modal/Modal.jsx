@@ -42,7 +42,7 @@ export default function BasicModal({ name, email, birthday, candidateIdprops, al
   return (
     <div>
       <Button onClick={handleOpen}><VisibilityIcon /></Button>
-      {/* <UpdateTextField /> */}
+      <UpdateTextField defaultValue={name} />
       <Modal
         open={open}
         onClose={handleClose}
