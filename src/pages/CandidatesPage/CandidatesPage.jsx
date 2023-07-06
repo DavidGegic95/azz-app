@@ -9,6 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Button } from '@mui/base';
 import { v4 as uuidv4 } from 'uuid';
 import { Navigate, useNavigate } from 'react-router-dom';
+import NestedModal from '../../components/NestedModal/NestedModal';
 
 
 
@@ -16,6 +17,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 function CandidatesPage() {
   const { allCandidates, token, setIsDeleted, allReports, setCandidateId } = useContext(appContext)
   const navigate = useNavigate()
+  console.log(allReports);
 
   const [inputName, setInputName] = useState("");
 
@@ -63,7 +65,8 @@ function CandidatesPage() {
             <div className='candidateCard' key={uuidv4()}>
               <img className='candidateImage' key={uuidv4()} src={singleCandidate?.avatar} alt="" />
               <p className='candidateName' key={uuidv4()}>{singleCandidate?.name}</p>
-              <BasicModal candidateIdprops={singleCandidate?.id} allReports={allReports} birthday={singleCandidate?.birthday} email={singleCandidate?.email} name={singleCandidate?.name} key={uuidv4} />
+              {/* <BasicModal candidateIdprops={singleCandidate?.id} allReports={allReports} birthday={singleCandidate?.birthday} email={singleCandidate?.email} name={singleCandidate?.name} key={uuidv4()} /> */}
+              <NestedModal singleCandidate={singleCandidate} candidateIdprops={singleCandidate?.id} allReports={allReports} birthday={singleCandidate?.birthday} email={singleCandidate?.email} name={singleCandidate?.name} key={uuidv4()} />
               <Button onClick={() => clickCreateReport(singleCandidate)}>
 
                 <CreateIcon />
