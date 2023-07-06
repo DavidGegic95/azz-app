@@ -1,20 +1,21 @@
-body{
+body {
     min-height: 100vh;
     width: 100%;
-    
+
 }
 
-.candidatesPage{
+.candidatesPage {
     min-height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-items:center ;
+    align-items: center;
     justify-content: center;
+
 }
 
-.allCandidatesCards{
+.allCandidatesCards {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,20 +24,22 @@ body{
     gap: 20px;
     padding: 30px 0;
     min-height: calc(100vh - 20px);
+
 }
 
-.candidateCard{
+.candidateCard {
     height: 400px;
     width: 300px;
     border: 1px solid black;
     border-radius: 20px;
+    background-color: #52796F;
 }
 
-.candidateName{
+.candidateName {
     font-size: 20px;
 }
 
-.candidateImage{
+.candidateImage {
     width: 200px;
     height: 200px;
     border: none;

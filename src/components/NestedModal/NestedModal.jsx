@@ -6,8 +6,11 @@ import Modal from '@mui/material/Modal';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import Moment from 'react-moment';
 import Table from "../Table/Table"
-import { TextField } from '@mui/material';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import UpdateTextField from '../UpdateTextField/UpdateTextField';
+import { appContext } from '../../context';
+
+
 
 const style = {
     position: 'absolute',
@@ -23,7 +26,9 @@ const style = {
     pb: 3,
 };
 
+
 function ChildModal({ singleCandidate, name, email, birthday, candidateIdprops, allReports }) {
+    const { token, setIsUpdatedInfo } = useContext(appContext)
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
@@ -31,7 +36,13 @@ function ChildModal({ singleCandidate, name, email, birthday, candidateIdprops, 
     const handleClose = () => {
         setOpen(false);
     };
-    const [updatedCandidateInfo, setupdatedCandidateInfo] = useState({
+
+    const click = () => {
+        patchCandidateInfo()
+        handleClose()
+        setIsUpdatedInfo(prev => !prev)
+    }
+    const [updatedCandidateInfo, setUpdatedCandidateInfo] = useState({
         avatar: `${singleCandidate.avatar}`,
         birthday: `${singleCandidate.birthday}`,
         education: `${singleCandidate.education}`,
@@ -40,13 +51,19 @@ function ChildModal({ singleCandidate, name, email, birthday, candidateIdprops, 
         name: `${singleCandidate.name}`,
     })
 
+    const patchCandidateInfo = () => {
+        fetch(`http://localhost:3333/api/candidates/${singleCandidate.id}`, {
+            method: "PATCH",
+            headers: {
+                "Authorization": `Bearer ${token}`,    ///headers u GET metodi na nije potreban, za razliku od DELETE metode
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedCandidateInfo)
+        })
+
+    }
 
 
-
-
-
-
-    console.log(singleCandidate);
 
     const reportsByCandidateID = []
     allReports.map(report => {
@@ -67,41 +84,33 @@ function ChildModal({ singleCandidate, name, email, birthday, candidateIdprops, 
             >
 
                 <Box sx={style}>
+
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         Candidate Name:
                     </Typography>
-                    <TextField 
-                        defaultValue={name} required />
+                    <UpdateTextField name="name" updatedCandidateInfo={updatedCandidateInfo} setUpdatedCandidateInfo={setUpdatedCandidateInfo} defaultValue={name} required />
                     <br />
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         Candidate email:
                     </Typography>
-                    <TextField
-                        defaultValue={email} required />
-                    <br />
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Candidate birthday:
-                    </Typography>
-                    <TextField
-                        defaultValue={singleCandidate.birthday} required />
+                    <UpdateTextField name="email" updatedCandidateInfo={updatedCandidateInfo} setUpdatedCandidateInfo={setUpdatedCandidateInfo} defaultValue={singleCandidate.email} required />
                     <br />
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         Candidate education:
                     </Typography>
-                    <TextField
-                        defaultValue={singleCandidate?.education} required />
+                    <UpdateTextField name="education" updatedCandidateInfo={updatedCandidateInfo} setUpdatedCandidateInfo={setUpdatedCandidateInfo} defaultValue={singleCandidate.education} required />
                     <br />
-                    <Button onClick={handleClose}>Save Changes</Button>
+                    <Button onClick={() => click()}>Save Changes</Button>
 
 
                 </Box>
             </Modal>
 
-        </React.Fragment>
+        </React.Fragment >
     );
 }
 
-export default function NestedModal({ singleCandidate, name, email, birthday, candidateIdprops, allReports }) {
+export default function NestedModal({ singleCandidate, name, email, birthday, candidateIdprops, allReports, setSelectedDate, selectedDate }) {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
         setOpen(true);
@@ -145,7 +154,7 @@ export default function NestedModal({ singleCandidate, name, email, birthday, ca
                     />
 
 
-                    <ChildModal singleCandidate={singleCandidate} candidateIdprops={candidateIdprops} allReports={allReports} birthday={birthday} email={email} name={name} />
+                    <ChildModal setSelectedDate={setSelectedDate} selectedDate={selectedDate} singleCandidate={singleCandidate} candidateIdprops={candidateIdprops} allReports={allReports} birthday={birthday} email={email} name={name} />
                 </Box>
             </Modal>
         </div>

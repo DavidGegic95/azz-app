@@ -6,8 +6,8 @@ import './datePicker.css'
 
 
 
-function DatePicker({ selectedOption, setSelectedOption, params }) {
-  const [selectedDate, setSelectedDate] = useState(null);
+function DatePicker({ selectedOption, setSelectedOption, params, setSelectedDate, selectedDate }) {
+
 
   const currentDate = new Date();
 
