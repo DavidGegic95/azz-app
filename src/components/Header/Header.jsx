@@ -22,9 +22,10 @@ function Header({ setInputName }) {
   return (
 
 
-    <header className='headerContainer'>
+
+    < header className='headerContainer' >
       <div className='logoLeft'>MDSP</div>
-      <TextField placeholder='Search candidates' sx={{ width: "400px" }} onChange={(e) => handleSearch(e)}></TextField>
+      <TextField placeholder='Search candidates' sx={{ width: "400px", }} onChange={(e) => handleSearch(e)}></TextField>
       <Button sx={{ height: "56px", width: "130px" }} className='logoutButton' onClick={deleteToken} variant="outlined">Log out</Button>
 
 
@@ -33,7 +34,7 @@ function Header({ setInputName }) {
 
 
 
-    </header>
+    </header >
 
   )
 }

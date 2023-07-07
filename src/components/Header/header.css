@@ -6,6 +6,7 @@
     overflow: hidden;
     flex-direction: row;
     justify-content: space-between;
+    border-bottom: 1px solid rgb(245, 245, 97);
 }
 
 

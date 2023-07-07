@@ -24,7 +24,7 @@ export default function InputAdornments({ name, type, change, error }) {
 
     return (
         <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
-            <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
+            <FormControl sx={{ m: 1, width: "260px" }} variant="outlined">
                 <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                 <OutlinedInput name={name} onChange={change} placeholder={name} error={error} id="outlined-adornment-password"
                     type={showPassword ? 'text' : 'password'} helperText={error && "Incorrect entry."}

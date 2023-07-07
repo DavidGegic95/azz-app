@@ -25,6 +25,7 @@ function DatePicker({ selectedOption, setSelectedOption, params, setSelectedDate
     <div >
 
       <CustomDatePicker className='datePicker'
+
         selected={selectedDate}
         onChange={handleDateChange}
         dateFormat="dd/MM/yyyy"

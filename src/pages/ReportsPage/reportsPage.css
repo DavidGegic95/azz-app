@@ -3,31 +3,50 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content:space-between;
+    justify-content: center;
     flex-direction: row;
+    background-image: url('/public/images/jobyellow.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+
 }
 
 
 .headReport {
     color: rgb(245, 245, 97);
 
+
 }
 
 .selectReport {
-background-color: rgb(245, 245, 97);
+    background-color: rgb(245, 245, 97);
 }
 
 .hiringPicture {
     width: 100%;
     height: 100%;
-    border-radius: 5px ;
+    border-radius: 5px;
 }
 
 .allSelects {
-    width: 50%;
-    height: auto;
+    width: 500px;
+    height: 700px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: black;
+    border-radius: 20px;
+    position: relative;
+    left: 300px;
+}
+
+h3 {
+    margin-bottom: 0;
+    color: rgb(245, 245, 97);
+}
+
+.datePicker {
+    margin-top: 20px;
 }

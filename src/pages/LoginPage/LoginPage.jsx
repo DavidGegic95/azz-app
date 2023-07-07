@@ -76,21 +76,22 @@ function LoginPage() {
 
 
       <section className='sectionSignIn'>
-      
-        <img className='signInbcg' alt=''></img>
+
         <img className='loginPagePic' src="/images/Agency.png" alt="" />
         <p><h1>Sign in</h1></p>
 
 
         <Input error={error} name="email" change={handler} type='text' />
-        {/* <Input error={error} name="password" change={handler} type='password' /> */}
-        {/* {error&&<p>Eroooooor</p>} */}
+
+        <br />
+
         <InputPassword error={error} name="password" change={handler} type='password' />
+
 
         <FormControlLabel onClick={() => setIsChecked((prev) => !prev)} setIsChecked={setIsChecked} control={<Checkbox defaultChecked={isChecked} />} label="remeber me" />
 
         <Button loginInfo={loginInfo} click={login} />
-       
+
 
 
       </section>
