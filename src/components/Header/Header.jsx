@@ -22,9 +22,10 @@ function Header({ setInputName }) {
   return (
 
 
-    <header>
+    <header className='headerContainer'>
+      <div className='logoLeft'>MDSP</div>
       <TextField onChange={(e) => handleSearch(e)}></TextField>
-      <Button onClick={deleteToken} variant="outlined">Log out</Button>
+      <Button className='logoutButton' onClick={deleteToken} variant="outlined">Log out</Button>
 
 
 

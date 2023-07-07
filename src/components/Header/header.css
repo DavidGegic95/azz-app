@@ -1,0 +1,20 @@
+.headerContainer {
+    display: flex;
+  align-items: center;
+  overflow: hidden;
+    margin: 10px;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+.logoutButton {
+    float: right;
+}
+
+.logoLeft {
+    color: rgb(245, 245, 97);
+    float: left;
+}

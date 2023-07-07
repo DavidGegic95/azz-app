@@ -75,12 +75,17 @@ function ReportsPage() {
 
 
   return (
-    <div>
-      <h1>Create report</h1>
-      <Select setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="companyName" name="Company" tittleSelect={"Select company"} options={allCompaniesObj} ></Select>
-      <Select setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="phase" name="Phase" tittleSelect={"Select phase"} options={phases} ></Select>
-      <Select setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="status" name="Status" tittleSelect={"Select status"} options={options} ></Select>
-      <CustomDatePicker setSelectedDate={setSelectedDate} selectedDate={selectedDate} setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="interviewDate" className='dropdown'></CustomDatePicker>
+    <div className='reportsPage'>
+      
+      <img className='hiringPicture' src='./images/jobss.jpg' alt=''></img>
+      
+
+      <div className='allSelects'>
+      <h1 className='headReport'>Create report</h1>
+      <Select className='selectReport' setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="companyName" name="Company" tittleSelect={"Select company"} options={allCompaniesObj} ></Select>
+      <Select className='selectReport' setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="phase" name="Phase" tittleSelect={"Select phase"} options={phases} ></Select>
+      <Select className='selectReport' setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="status" name="Status" tittleSelect={"Select status"} options={options} ></Select>
+      <CustomDatePicker className='selectReport' setSelectedDate={setSelectedDate} selectedDate={selectedDate} setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="interviewDate" className='dropdown'></CustomDatePicker>
       <Box onChange={(e) => handler(e)}
 
         component="form"
@@ -101,6 +106,7 @@ function ReportsPage() {
       <Link to={`/candidatesPage`}>
         <Button onClick={saveAllNewReports} variant="outlined">Submit</Button>
       </Link>
+      </div>
     </div >
   )
 }

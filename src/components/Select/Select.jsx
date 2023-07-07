@@ -11,9 +11,6 @@ function Select({ options, tittleSelect, name, setSelectedOption, selectedOption
   // const [selectedCompanyId, setSelectedCompanyId] = useState("")
 
 
-
-
-
   const handler = (event) => {
     const newselectedOptions = { ...selectedOption };
     newselectedOptions[params] = event.target.value;
