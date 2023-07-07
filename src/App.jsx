@@ -86,14 +86,21 @@ function App() {
 
 
       <div className="App">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/candidatesPage" element={<CandidatesPage />} />
-          <Route path='/loginPage' element={<LoginPage />} />
-          <Route path='/reportsPage' element={<ReportsPage />} />
+        {token ?
+          (<Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/candidatesPage" element={<CandidatesPage />} />
+            <Route path='/loginPage' element={<LoginPage />} />
+            <Route path='/reportsPage' element={<ReportsPage />} />
+            <Route path='*' element={<Navigate to="/" />} />
 
+          </Routes>) :
+          (<Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path='/loginPage' element={<LoginPage />} />
+            <Route path='*' element={<Navigate to="/" />} />
+          </Routes>)}
 
-        </Routes>
 
         {/* //  <LoginPage></LoginPage> */}
         {/* <CandidatesPage></CandidatesPage> */}

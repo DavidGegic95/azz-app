@@ -71,7 +71,7 @@ body {
 
 }
 
-/* .createButton {
+.createButton {
     width: 70px;
     height: 40px;
     background-color: rgb(245, 245, 97);
@@ -88,7 +88,7 @@ body {
     border: 2.5px solid black;
     border-radius: 6px;
     cursor: pointer;
-} */
+}
 
 
 .buttonsDiv {

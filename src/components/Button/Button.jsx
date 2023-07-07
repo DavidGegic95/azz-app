@@ -1,18 +1,18 @@
-// import React from 'react'
-// import './button.css'
-// import ButtonMui from '@mui/material/Button';
+import React from 'react'
+import './button.css'
+import ButtonMui from '@mui/material/Button';
 
 
 
 
-// function Button({ loginInfo, click }) {
+function Button({ loginInfo, click }) {
 
-//   function checkPassword() { }
+    function checkPassword() { }
 
 
-//   return (
-//     <ButtonMui onClick={click} variant="outlined">Login</ButtonMui>
-//   )
-// }
+    return (
+        <ButtonMui onClick={click} variant="outlined">Login</ButtonMui>
+    )
+}
 
-// export default Button
+export default Button

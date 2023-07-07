@@ -34,7 +34,7 @@ function HomePage() {
 
   return (
     <div className="homePage" >
-      <button onClick={loginButton} class="login">Login</button>
+      <button onClick={loginButton} className="login">Login</button>
       <img src="/images/employment.jpeg" alt="" />
       <div className="whiteDiv"></div>
     </div>

@@ -56,7 +56,6 @@ function CandidatesPage() {
   return (
 
     <div className='candidatesPage'>
-      <div className="background" ></div>
 
       <Header setInputName={setInputName} allCandidates={allCandidates} />
 
