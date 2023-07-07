@@ -76,12 +76,14 @@ function ReportsPage() {
 
   return (
     <div className='reportsPage'>
+      <div><img className='hiringPicture' src='./images/jobyellow.jpg' alt=''></img></div>
       
-      <img className='hiringPicture' src='./images/jobss.jpg' alt=''></img>
       
 
       <div className='allSelects'>
+      
       <h1 className='headReport'>Create report</h1>
+      
       <Select className='selectReport' setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="companyName" name="Company" tittleSelect={"Select company"} options={allCompaniesObj} ></Select>
       <Select className='selectReport' setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="phase" name="Phase" tittleSelect={"Select phase"} options={phases} ></Select>
       <Select className='selectReport' setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="status" name="Status" tittleSelect={"Select status"} options={options} ></Select>

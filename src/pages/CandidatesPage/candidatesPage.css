@@ -23,9 +23,7 @@ body {
     width: 100%;
     height: 100%;
     background-image: url('/public/images/bay.jpg');
-    /* Postavite putanju do vaše slike */
     background-size: cover;
-    /* Prilagodite veličinu slike prema potrebama */
     background-position: center;
     z-index: -1;
 }
