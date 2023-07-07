@@ -1,9 +1,7 @@
 import React, { useContext, useState } from 'react'
 import './candidatesPage.css'
 import Header from "../../components/Header/Header"
-import Footer from "../../components/Footer/Footer"
 import { appContext } from '../../context';
-import BasicModal from '../../components/Modal/Modal';
 import CreateIcon from '@mui/icons-material/Create';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Button } from '@mui/base';
@@ -87,8 +85,6 @@ function CandidatesPage() {
 
       </div>
 
-
-      <Footer />
 
     </div>
   )
