@@ -6,13 +6,18 @@ import './datePicker.css'
 
 
 
-function DatePicker() {
-  const [selectedDate, setSelectedDate] = useState(null);
+function DatePicker({ selectedOption, setSelectedOption, params, setSelectedDate, selectedDate }) {
+
 
   const currentDate = new Date();
 
+
   const handleDateChange = (date) => {
     setSelectedDate(date);
+    const newselectedOptions = { ...selectedOption };
+    newselectedOptions[params] = date;
+    setSelectedOption(newselectedOptions)
+    console.log(newselectedOptions)
   };
 
 
@@ -20,6 +25,7 @@ function DatePicker() {
     <div >
 
       <CustomDatePicker className='datePicker'
+
         selected={selectedDate}
         onChange={handleDateChange}
         dateFormat="dd/MM/yyyy"

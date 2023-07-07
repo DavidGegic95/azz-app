@@ -1,5 +1,6 @@
 import { AppProvider } from './context';
 import './App.css';
+import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import { useEffect, useState } from 'react';
 import CandidatesPage from './pages/CandidatesPage/CandidatesPage';
@@ -11,7 +12,7 @@ import ReportsPage from "./pages/ReportsPage/ReportsPage"
 
 
 
-function App({ selectedDate, setSelectedDate }) {
+function App() {
 
   const [isChecked, setIsChecked] = useState(false)
   const [token, setToken] = useState(!isChecked ? localStorage.getItem("token") : sessionStorage.getItem("token"))
@@ -19,6 +20,11 @@ function App({ selectedDate, setSelectedDate }) {
   const [isDeleted, setIsDeleted] = useState(false)
   const [allReports, setAllReports] = useState([])
   const [allCompanies, setAllCompanies] = useState([])
+  const [candidateId, setCandidateId] = useState({})
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [isUpdatedInfo, setIsUpdatedInfo] = useState(false)
+
 
 
 
@@ -59,7 +65,7 @@ function App({ selectedDate, setSelectedDate }) {
     fetch('http://localhost:3333/api/companies')
       .then(response => response.json())
       .then(data => {
-        console.log(data) || setAllCompanies(data)
+        setAllCompanies(data)
 
       })
   }
@@ -70,22 +76,31 @@ function App({ selectedDate, setSelectedDate }) {
     getAllReports()
     getAllCandidates()
     selectCompany()
-  }, [isDeleted])
+
+  }, [isDeleted, isSubmitted, isUpdatedInfo])
 
 
 
   return (
-    <AppProvider value={{ setToken, setIsChecked, isChecked, allCandidates, token, isDeleted, setIsDeleted, allReports, allCompanies }}>
+    <AppProvider value={{ setToken, setIsChecked, isChecked, allCandidates, token, isDeleted, setIsDeleted, allReports, allCompanies, setCandidateId, candidateId, setIsSubmitted, setSelectedDate, selectedDate, setIsUpdatedInfo }}>
 
 
       <div className="App">
-        <Routes>
-          <Route path="/candidatesPage" element={<CandidatesPage />} />
-          <Route path='/loginPage' element={<LoginPage />} />
-          <Route path='/reportsPage' element={<ReportsPage />} />
+        {token ?
+          (<Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/candidatesPage" element={<CandidatesPage />} />
+            <Route path='/loginPage' element={<LoginPage />} />
+            <Route path='/reportsPage' element={<ReportsPage />} />
+            <Route path='*' element={<Navigate to="/" />} />
 
+          </Routes>) :
+          (<Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path='/loginPage' element={<LoginPage />} />
+            <Route path='*' element={<Navigate to="/" />} />
+          </Routes>)}
 
-        </Routes>
 
         {/* //  <LoginPage></LoginPage> */}
         {/* <CandidatesPage></CandidatesPage> */}

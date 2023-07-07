@@ -1,21 +1,20 @@
-
-.selectDropDown {
-    display: flex;
-    height: 100vh;
-    justify-content: center; 
+/* .selectDropDown {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
   align-items: center;
-}
+  margin-bottom: 100px;
+} */
 
 
 .dropdown {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: 1 solid transparent #D6D60B ;
-    border-radius: 4px;
-    background-color:rgb(20, 20, 20);
-    color: #D6D60B;
-    cursor: pointer;
-    display: flex;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1 solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  background-color: #a9a9a9;
+  color: black bold;
+
 }
-
-

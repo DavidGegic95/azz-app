@@ -4,8 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
@@ -13,29 +11,34 @@ const theme = createTheme({
     palette: {
         mode: 'dark',
         primary: {
-            main: '#D6D60B',
-            dark: '#74FF4A',
-            light: '#D6D60B',
+          main: '#ffff00',
+          dark: '#e2e215',
+          light: '#ecec17',
         },
         secondary: {
-            main: '#F5D700',
+          main: '#ffff00',
         },
         text: {
-            primary: '#FFEBEE',
-            hint: '#15621A',
+          primary: '#ffffff',
+          hint: '#48dc4f',
+          secondary: 'rgba(253,253,253,0.7)',
         },
         info: {
-            main: '#B96115',
-            contrastText: '#AA2F2F',
+          main: '#b96115',
+          contrastText: '#aa2f2f',
         },
         success: {
-            main: '#34FD3E',
+          main: '#ffff00',
         },
         divider: 'rgba(150,29,29,0.12)',
         background: {
-            paper: '#000000',
+          paper: '#2b2929',
+          default: '#272725',
         },
-    },
+        error: {
+          main: '#e01c0d',
+        },
+      },
 }
 );
 

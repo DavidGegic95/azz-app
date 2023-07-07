@@ -8,6 +8,7 @@ import { appContext } from '../../context';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Input from '../../components/Input/Input'
 import Button from '../../components/Button/Button'
+import InputPassword from "../../components/InputPassword/InputPassword"
 
 
 
@@ -62,20 +63,38 @@ function LoginPage() {
   }
 
   return (
-    <div className='loginPage'>
-      <Avatar alt="signin" src=''></Avatar>
-      <p>Sign in</p>
+    <div className='loginPage' >
+      <section className='sectionPicture'>
+
+        <img className='membersPicture' src='/images/Brown Blue Creative Meet Our Team Instagram Post.jpg' alt=''></img>
 
 
-      <Input error={error} name="email" change={handler} type='text' />
-      <Input error={error} name="password" change={handler} type='password' />
-      {/* {error&&<p>Eroooooor</p>} */}
-
-      <FormControlLabel onClick={() => setIsChecked((prev) => !prev)} setIsChecked={setIsChecked} control={<Checkbox defaultChecked={isChecked} />} label="remeber me" />
-
-      <Button loginInfo={loginInfo} click={login} />
+      </section>
 
 
+
+
+
+      <section className='sectionSignIn'>
+
+        <img className='loginPagePic' src="/images/Agency.png" alt="" />
+        <p><h1>Sign in</h1></p>
+
+
+        <Input error={error} name="email" change={handler} type='text' />
+
+        <br />
+
+        <InputPassword error={error} name="password" change={handler} type='password' />
+
+
+        <FormControlLabel onClick={() => setIsChecked((prev) => !prev)} setIsChecked={setIsChecked} control={<Checkbox defaultChecked={isChecked} />} label="remeber me" />
+
+        <Button loginInfo={loginInfo} click={login} />
+
+
+
+      </section>
     </div>
   )
 }

@@ -5,14 +5,14 @@ import ButtonMui from '@mui/material/Button';
 
 
 
-function Button({loginInfo, click}) {
+function Button({ loginInfo, click }) {
 
-  function checkPassword(){}
+    function checkPassword() { }
 
 
-  return (
-    <ButtonMui onClick={click}  variant="outlined">Login</ButtonMui>
-  )
+    return (
+        <ButtonMui onClick={click} variant="outlined">Login</ButtonMui>
+    )
 }
 
 export default Button
