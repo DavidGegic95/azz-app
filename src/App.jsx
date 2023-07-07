@@ -4,7 +4,7 @@ import HomePage from './pages/HomePage/HomePage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import { useEffect, useState } from 'react';
 import CandidatesPage from './pages/CandidatesPage/CandidatesPage';
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import ReportsPage from "./pages/ReportsPage/ReportsPage"
 
 
