@@ -75,32 +75,44 @@ function ReportsPage() {
 
 
   return (
-    <div>
-      <h1>Create report</h1>
-      <Select setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="companyName" name="Company" tittleSelect={"Select company"} options={allCompaniesObj} ></Select>
-      <Select setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="phase" name="Phase" tittleSelect={"Select phase"} options={phases} ></Select>
-      <Select setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="status" name="Status" tittleSelect={"Select status"} options={options} ></Select>
-      <CustomDatePicker setSelectedDate={setSelectedDate} selectedDate={selectedDate} setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="interviewDate" className='dropdown'></CustomDatePicker>
-      <Box onChange={(e) => handler(e)}
+    <div className='reportsPage'>
+      {/* <img className='hiringPicture' src='./images/jobyellow.jpg' alt=''></img> */}
 
-        component="form"
-        sx={{
-          '& .MuiTextField-root': { m: 1, width: '50ch', },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <div>
-          <TextField
-            id="outlined-textarea"
-            label="about candidate"
-            placeholder="Notes"
-          />
-        </div>
-      </Box>
-      <Link to={`/candidatesPage`}>
-        <Button onClick={saveAllNewReports} variant="outlined">Submit</Button>
-      </Link>
+
+
+      <div className='allSelects'>
+
+        <h1 className='headReport'>Create report</h1>
+
+        <Select className='selectReport' setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="companyName" name="Company" tittleSelect={"Select company"} options={allCompaniesObj} ></Select>
+        <Select className='selectReport' setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="phase" name="Phase" tittleSelect={"Select phase"} options={phases} ></Select>
+        <Select className='selectReport' setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="status" name="Status" tittleSelect={"Select status"} options={options} ></Select>
+        <CustomDatePicker setSelectedDate={setSelectedDate} selectedDate={selectedDate} setSelectedOption={setSelectedOption} selectedOption={selectedOption} params="interviewDate"></CustomDatePicker>
+        <Box onChange={(e) => handler(e)}
+
+
+
+          component="form"
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '50ch', },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <div>
+            <TextField
+              multiline
+              rows={4}
+              id="outlined-textarea"
+              label="about candidate"
+              placeholder="Notes"
+            />
+          </div>
+        </Box>
+        <Link to={`/candidatesPage`}>
+          <Button onClick={saveAllNewReports} variant="outlined">Submit</Button>
+        </Link>
+      </div>
     </div >
   )
 }

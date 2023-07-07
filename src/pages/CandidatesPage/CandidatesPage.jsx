@@ -56,6 +56,7 @@ function CandidatesPage() {
   return (
 
     <div className='candidatesPage'>
+
       <Header setInputName={setInputName} allCandidates={allCandidates} />
 
       <div className='allCandidatesCards'>
@@ -65,16 +66,19 @@ function CandidatesPage() {
             <div className='candidateCard' key={uuidv4()}>
               <img className='candidateImage' key={uuidv4()} src={singleCandidate?.avatar} alt="" />
               <p className='candidateName' key={uuidv4()}>{singleCandidate?.name}</p>
-              {/* <BasicModal candidateIdprops={singleCandidate?.id} allReports={allReports} birthday={singleCandidate?.birthday} email={singleCandidate?.email} name={singleCandidate?.name} key={uuidv4()} /> */}
-              <NestedModal selectedDate={selectedDate} setSelectedDate={setSelectedDate} singleCandidate={singleCandidate} candidateIdprops={singleCandidate?.id} allReports={allReports} birthday={singleCandidate?.birthday} email={singleCandidate?.email} name={singleCandidate?.name} key={uuidv4()} />
-              <Button onClick={() => clickCreateReport(singleCandidate)}>
 
-                <CreateIcon />
-              </Button>
-              <Button onClick={() => deleteCandidate(singleCandidate?.id)}>
-                <DeleteIcon />
 
-              </Button>
+              <div className='buttonsDiv'>
+                <NestedModal selectedDate={selectedDate} setSelectedDate={setSelectedDate} singleCandidate={singleCandidate} candidateIdprops={singleCandidate?.id} allReports={allReports} birthday={singleCandidate?.birthday} email={singleCandidate?.email} name={singleCandidate?.name} key={uuidv4()} />
+                <Button className='createButton' onClick={() => clickCreateReport(singleCandidate)}>
+
+                  <CreateIcon />
+                </Button>
+                <Button className='deleteButton' onClick={() => deleteCandidate(singleCandidate?.id)}>
+                  <DeleteIcon />
+
+                </Button>
+              </div>
             </div>
 
           )

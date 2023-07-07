@@ -1,6 +1,6 @@
 import React from "react"
 import "./input.css";
-import TextField from "@mui/material/TextField";// import Box from '@mui/material/Box';
+import TextField from "@mui/material/TextField";
 
 
 
@@ -8,10 +8,11 @@ import TextField from "@mui/material/TextField";// import Box from '@mui/materia
 function Input({ name, type, change, error }) {
   return (
     <TextField
+      sx={{ height: "56px", width: "260px" }}
       type={type}
       helperText={error && "Incorrect entry."}
       error={error}
-      placeholder={name}
+      placeholder="Email"
       name={name}
       onChange={change}
 

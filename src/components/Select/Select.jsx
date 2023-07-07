@@ -11,9 +11,6 @@ function Select({ options, tittleSelect, name, setSelectedOption, selectedOption
   // const [selectedCompanyId, setSelectedCompanyId] = useState("")
 
 
-
-
-
   const handler = (event) => {
     const newselectedOptions = { ...selectedOption };
     newselectedOptions[params] = event.target.value;
@@ -52,7 +49,7 @@ function Select({ options, tittleSelect, name, setSelectedOption, selectedOption
   return (
     <div >
 
-      <h2>{name}</h2>
+      <h3>{name}</h3>
       <div className='selectDropdown'>
         <select className='dropdown'
 

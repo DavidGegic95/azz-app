@@ -1,0 +1,10 @@
+.visibilityButton {
+    width: 70px;
+    height: 40px;
+    background-color: rgb(245, 245, 97);
+    border: 2.5px solid black;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 6px;
+
+}
