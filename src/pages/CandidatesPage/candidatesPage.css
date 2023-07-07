@@ -15,19 +15,22 @@ body {
     position: relative;
 
 }
+
 .background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/public/images/bay.jpg'); /* Postavite putanju do vaše slike */
-    background-size: cover; /* Prilagodite veličinu slike prema potrebama */
+    background-image: url('/public/images/bay.jpg');
+    /* Postavite putanju do vaše slike */
+    background-size: cover;
+    /* Prilagodite veličinu slike prema potrebama */
     background-position: center;
-    z-index: -1; 
-  }
+    z-index: -1;
+}
 
-.candidateCard :hover {
+.candidateCard:hover {
     transform: scale(1.1);
 }
 
@@ -49,12 +52,14 @@ body {
     border: 3px solid black;
     border-radius: 20px;
     background-color: rgb(245, 245, 97);
-    
+    padding-top: 50px;
+    margin: 60px;
+
 }
 
 .candidateName {
     font-size: 30px;
-    color: black; 
+    color: black;
     font-weight: bold;
 }
 
@@ -63,25 +68,36 @@ body {
     height: 200px;
     border: none;
     border-radius: 50%;
-   
+
 }
 
 .createButton {
-    width: 70px; 
-  height: 40px;
-  background-color: rgb(245, 245, 97);
-  border: 2.5px solid black;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 6px;
+    width: 70px;
+    height: 40px;
+    background-color: rgb(245, 245, 97);
+    border: 2.5px solid black;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
+
 .deleteButton {
-    width: 70px; 
-  height: 40px;
-  background-color: rgb(245, 245, 97);
-  border: 2.5px solid black;
-  align-items: center;
-  justify-content: space-between;
-  border-radius: 6px;
+    width: 70px;
+    height: 40px;
+    background-color: rgb(245, 245, 97);
+    border: 2.5px solid black;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+.buttonsDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 40px;
 }

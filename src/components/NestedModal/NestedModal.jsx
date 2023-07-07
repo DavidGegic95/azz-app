@@ -128,7 +128,10 @@ export default function NestedModal({ singleCandidate, name, email, birthday, ca
 
     return (
         <div>
-            <Button  onClick={handleOpen}><VisibilityIcon  /></Button>
+            <Button className='visibilityButton' onClick={handleOpen}><VisibilityIcon sx={{
+                color: "#000000", border: "2.5px solid black", width: "70px",
+                height: "40px", borderRadius: "6px", cursor: "pointer",
+            }} /></Button>
             <Modal
                 open={open}
                 onClose={handleClose}

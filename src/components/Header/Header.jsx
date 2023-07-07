@@ -24,8 +24,8 @@ function Header({ setInputName }) {
 
     <header className='headerContainer'>
       <div className='logoLeft'>MDSP</div>
-      <TextField onChange={(e) => handleSearch(e)}></TextField>
-      <Button className='logoutButton' onClick={deleteToken} variant="outlined">Log out</Button>
+      <TextField placeholder='Search candidates' sx={{ width: "400px" }} onChange={(e) => handleSearch(e)}></TextField>
+      <Button sx={{ height: "56px", width: "130px" }} className='logoutButton' onClick={deleteToken} variant="outlined">Log out</Button>
 
 
 
